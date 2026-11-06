@@ -1,23 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MACXIPA - CONTACTE</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
-          <img width="200" src="img/logo.png" alt="">
-    [<a href="index.html">Inici</a>]
-    [<a href="informacio.html">Informació</a>]
-    [<a href="contacte.html">Contacte</a>]
-   </header> 
+        <img width="200" src="img/logo.png" alt="">
+        [<a href="index.html">Inici</a>]
+        [<a href="informacio.html">Informació</a>]
+        [<a href="contacte.html">Contacte</a>]
+    </header>
     <main>
-            <h1>Formulari de contacte</h1>
-   </main>
-      <footer>
-    2026 - MACXIPA
-   </footer>
+        <h1>Formulari de contacte</h1>
+
+        <form action="processa.php" method="post" enctype="multipart/form-data">
+
+
+            <h2>Comanda d'un pastís</h2>
+
+            <label for="fname">Nom:</label><br>
+            <input type="text" id="fname" name="nom" required><br><br>
+
+            <label for="email">Correu electrònic:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+
+            <label for="telefon">Telèfon:</label><br>
+            <input type="tel" id="telefon" name="telefon"><br><br>
+
+            <label for="password">Contrasenya:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+
+            <h3>Mida del pastís</h3>
+            <input type="radio" id="petita" name="mida" value="petita">
+            <label for="petita">Petita</label><br>
+
+            <input type="radio" id="mitjana" name="mida" value="mitjana">
+            <label for="mitjana">Mitjana</label><br>
+
+            <input type="radio" id="gran" name="mida" value="gran">
+            <label for="gran">Gran</label><br>
+
+            <h3>Toppings</h3>
+            <input type="checkbox" id="xocolata" name="toppings[]" value="xocolata">
+            <label for="xocolata">Xocolata</label><br>
+
+            <input type="checkbox" id="nata" name="toppings[]" value="nata">
+            <label for="nata">Nata</label><br>
+
+            <input type="checkbox" id="fruita" name="toppings[]" value="fruita">
+            <label for="fruita">Fruita</label><br>
+
+            <h3>Tipus de pastís (select)</h3>
+            <label for="tipus">Escull un tipus:</label><br>
+            <select id="tipus" name="tipus">
+                <option value="xocolata">Xocolata</option>
+                <option value="formatge">Formatge</option>
+                <option value="pastanaga">Pastanaga</option>
+                <option value="llimona">Llimona</option>
+            </select>
+
+            <h3>Quantitat (number)</h3>
+            <label for="quantitat">Nombre de pastissos:</label><br>
+            <input type="number" id="quantitat" name="quantitat" min="1" max="10" value="1">
+
+            <h3>Data i hora de recollida</h3>
+            <label for="data">Data:</label><br>
+            <input type="date" id="data" name="data"><br><br>
+
+            <label for="hora">Hora:</label><br>
+            <input type="time" id="hora" name="hora">
+
+            <h3>Nivell de dolçor (range)</h3>
+            <label for="dolcor">Dolçor:</label><br>
+            <input type="range" id="dolcor" name="dolcor" min="0" max="10" value="5">
+
+            <h3>Color de la decoració</h3>
+            <label for="color">Escull un color:</label><br>
+            <input type="color" id="color" name="color">
+
+            <h3>Imatge de referència</h3>
+            <label for="fitxer">Puja una imatge:</label><br>
+            <input type="file" id="fitxer" name="fitxer" accept="image/*">
+
+            <h3>Instruccions especials (textarea)</h3>
+            <label for="comentaris">Comentaris:</label><br>
+            <textarea id="comentaris" name="comentaris" rows="4" cols="40"
+                placeholder="Escriu les teves indicacions..."></textarea>
+
+
+
+            <input type="hidden" name="categoria" value="pastissos">
+
+            <hr>
+
+            <input type="submit" value="Envia el formulari">
+            <input type="reset" value="Neteja el formulari">
+            <button type="button">Botó normal</button>
+
+
+        </form>
+    </main>
+    <footer>
+        2026 - MACXIPA
+    </footer>
 </body>
+
 </html>
