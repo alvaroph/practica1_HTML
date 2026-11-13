@@ -34,7 +34,7 @@ jobs:
             set sftp:connect-program 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null';
             pwd;
             ls;
-            mirror -R --verbose web/ \"$DIR\";
+            mirror -R --verbose web/ $DIR;
             bye
           "
 
