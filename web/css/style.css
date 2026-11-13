@@ -29,3 +29,13 @@ h1,h2,h3 {
 #imatgePortada {
     width: 600px;
 }
+
+img{
+     margin: 50px;
+}
+div {
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}

@@ -24,18 +24,13 @@ jobs:
           echo "=== ARCHIVOS LOCALES ==="
           ls -la web/
 
-          echo "=== DESTINO ==="
-          echo "Servidor: $HOST"
-          echo "Directorio: $DIR"
-
-          echo "=== CONECTANDO Y SUBIENDO ==="
+          echo "=== CONECTANDO ==="
           lftp -u "$USER","$PASS" "sftp://$HOST" -e "
             set cmd:fail-exit yes;
             set sftp:connect-program 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null';
+            cd $DIR;
             pwd;
-            ls;
-            mirror -R --verbose web/ $DIR;
-            bye
+            mirror -R --verbose --no-perms web/ ./;
+            cls -l;
+            bye;
           "
-
-          echo "=== PUBLICACION FINALIZADA ==="
