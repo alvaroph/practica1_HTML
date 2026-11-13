@@ -1,0 +1,28 @@
+name: Publicar a PRE
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Publicar por SFTP
+        env:
+          HOST: ${{ secrets.SFTP_HOST }}
+          USER: ${{ secrets.SFTP_USER }}
+          PASS: ${{ secrets.SFTP_PASSWORD }}
+          DIR: ${{ secrets.SFTP_PRE_DIR }}
+        run: |
+          lftp -u "$USER","$PASS" "sftp://$HOST" -e "
+            set sftp:connect-program 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null';
+            mirror -R web/ \"$DIR\";
+            bye
+          "
