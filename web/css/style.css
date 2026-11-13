@@ -1,7 +1,31 @@
-  header{
-        background-color: rgb(244, 170, 170);
-    }
+/* REGLES SOBRE ATRIBUTS HTML */
+header {
+    background-color: rgb(244, 170, 170);
+}
 
-    footer{
-        background-color: rgb(244, 170, 170);
-    }
+footer {
+    background-color: rgb(244, 170, 170);
+}
+
+p {
+    color: red
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+h1,h2,h3 {
+    color: rgb(88, 47, 3)
+}
+
+/* REGLES SOBRE CLASES */
+.enllac {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: brown;
+}
+
+/* REGLES SOBRE IDL */
+#imatgePortada {
+    width: 600px;
+}
