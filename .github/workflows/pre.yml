@@ -21,8 +21,21 @@ jobs:
           PASS: ${{ secrets.SFTP_PASSWORD }}
           DIR: ${{ secrets.SFTP_PRE_DIR }}
         run: |
+          echo "=== ARCHIVOS LOCALES ==="
+          ls -la web/
+
+          echo "=== DESTINO ==="
+          echo "Servidor: $HOST"
+          echo "Directorio: $DIR"
+
+          echo "=== CONECTANDO Y SUBIENDO ==="
           lftp -u "$USER","$PASS" "sftp://$HOST" -e "
+            set cmd:fail-exit yes;
             set sftp:connect-program 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null';
-            mirror -R web/ \"$DIR\";
+            pwd;
+            ls;
+            mirror -R --verbose web/ \"$DIR\";
             bye
           "
+
+          echo "=== PUBLICACION FINALIZADA ==="
